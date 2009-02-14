@@ -1,0 +1,27 @@
+LuaChaSen
+
+Requirements:
+ - Lua 5.1 (http://www.lua.org/)
+ - UTF-8 enabled ChaSen (http://chasen-legacy.sourceforge.jp/)
+
+Enabling UTF-8 on ChaSen:
+ * Make sure that you have the .cha and .dic files in the same directory. It's
+ located at /usr/lib/chasen/dic/ipadic/ on my system.
+ * Convert the *.cha and *.dic files into UTF-8. You can do this with
+ nkf/iconv/convmv, whatever you have at hand really. The original files are
+ encoded in EUC-JP.
+ * Convert your chasenrc into UTF-8. It's located at /etc/chasenrc on my
+ system.
+
+Note that you will to tell chasen to use UTF-8 with -i w.
+
+Use:
+ bool = chasen.init(<fmt string>): See chasen -Fh for more information.
+ str = chasen.sparse(<string>)
+
+TODO:
+ - We should expose the rest of the API:
+    * chasen_fparse_tostr
+    * chasen_fparse
+    * chasen_sparse
+ - .init should really accept a table also.
