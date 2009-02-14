@@ -28,5 +28,9 @@ static const luaL_reg chasenlib[] = {
 
 LUALIB_API int luaopen_chasen (lua_State *L) {
 	luaL_register(L, "chasen", chasenlib);
+
+	char *opt[4] = {"chasen", "-i", "w", NULL};
+	int result = chasen_getopt_argv(opt, NULL);
+
 	return 1;
 }
